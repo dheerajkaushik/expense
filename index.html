@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraTrack: Modern Expense Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1><i class="fas fa-chart-pie"></i> AuraTrack</h1>
+        <p>Modern Expense Manager</p>
+    </header>
+
+    <main class="container">
+        <section id="header-summary" class="summary-grid">
+            <div class="card net-income">
+                <p class="label">Net Balance</p>
+                <h2 id="net-income-display">$0.00</h2>
+            </div>
+            <div class="card total-income">
+                <p class="label">Total Income</p>
+                <h3 id="total-income-display">$0.00</h3>
+            </div>
+            <div class="card total-expenses">
+                <p class="label">Total Expenses</p>
+                <h3 id="total-expenses-display">$0.00</h3>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <div class="panel controls-panel">
+                <h2>Transaction</h2>
+                <form id="transaction-form" class="form-grid">
+                    <input type="hidden" id="transaction-id" value="">
+                    
+                    <div class="input-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="e.g., Coffee, Salary" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="amount">Amount ($)</label>
+                        <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" value="" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group radio-group">
+                        <input type="radio" id="type-expense" name="type" value="expense" checked>
+                        <label for="type-expense" class="radio-expense"><i class="fas fa-minus-circle"></i> Expense</label>
+                        
+                        <input type="radio" id="type-income" name="type" value="income">
+                        <label for="type-income" class="radio-income"><i class="fas fa-plus-circle"></i> Income</label>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add Transaction</button>
+                    <button type="button" id="cancel-edit-btn" class="btn btn-secondary hidden">Cancel Edit</button>
+                </form>
+                
+                <div id="error-message" class="error-message hidden"></div>
+                
+                <div class="import-export-controls">
+                    <button id="export-btn" class="btn btn-info"><i class="fas fa-download"></i> Export Data</button>
+                    <button id="import-btn" class="btn btn-info"><i class="fas fa-upload"></i> Import Data</button>
+                    <input type="file" id="import-file" accept=".json" class="hidden">
+                </div>
+            </div>
+            
+            <div class="panel visualization-panel">
+                <h2>Expense Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="expense-pie-chart"></canvas>
+                </div>
+
+                <div class="filter-group">
+                    <label for="category-filter">Filter by Category:</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel transaction-list-panel">
+            <h2>Transaction History</h2>
+            <ul id="transaction-list">
+                </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

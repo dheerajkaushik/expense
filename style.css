@@ -1,0 +1,336 @@
+/* MODERN COLOR PALETTE */
+:root {
+    --color-bg-deep: #1C1E26;     /* Deep Muted Charcoal */
+    --color-bg-card: #272A33;     /* Lighter Card Background */
+    --color-text-primary: #F0F2F5; /* Soft White Text */
+    --color-accent-income: #4CAF50; /* Vibrant Emerald Green */
+    --color-accent-expense: #E53935; /* Deep Ruby Red */
+    --color-primary-violet: #7B66FF; /* Soft Electric Violet */
+    --color-secondary-grey: #6C757D; /* Muted Grey for borders/details */
+    --border-radius-base: 10px;
+    --box-shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Global Reset and Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg-deep);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+.header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-bg-card);
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary-violet);
+}
+
+/* Card and Panel Base Styles */
+.card, .panel {
+    background-color: var(--color-bg-card);
+    border-radius: var(--border-radius-base);
+    padding: 20px;
+    box-shadow: var(--box-shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Summary Grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card .label {
+    opacity: 0.8;
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.card h2, .card h3 {
+    font-weight: 700;
+}
+
+/* Specific Card Colors */
+.net-income { background-color: #3B3E47; border-left: 5px solid var(--color-primary-violet); }
+.total-income { border-left: 5px solid var(--color-accent-income); }
+.total-expenses { border-left: 5px solid var(--color-accent-expense); }
+
+/* Main Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Form and Input Styling */
+.controls-panel h2 {
+    margin-bottom: 20px;
+    color: var(--color-primary-violet);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input:not([type="radio"]), select {
+    background-color: var(--color-bg-deep);
+    border: 1px solid var(--color-secondary-grey);
+    color: var(--color-text-primary);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--color-primary-violet);
+}
+
+/* Radio Button Styling (Type Selector) */
+.radio-group {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group label {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid var(--color-secondary-grey);
+}
+
+.radio-group input:checked + .radio-expense {
+    background-color: var(--color-accent-expense);
+    border-color: var(--color-accent-expense);
+}
+
+.radio-group input:checked + .radio-income {
+    background-color: var(--color-accent-income);
+    border-color: var(--color-accent-income);
+}
+
+/* Button Styling */
+.btn {
+    grid-column: span 2;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-violet);
+    color: var(--color-text-primary);
+}
+
+.btn-primary:hover {
+    background-color: #6a53d9;
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary-grey);
+    color: var(--color-text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-info {
+    grid-column: unset;
+    padding: 8px 15px;
+    background-color: #3b3e47; /* Darker secondary button */
+    border: 1px solid var(--color-secondary-grey);
+}
+.btn-info:hover {
+    background-color: #4c515a;
+}
+.import-export-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+.import-export-controls .btn {
+    grid-column: unset;
+    flex-grow: 1;
+}
+
+/* Error Message */
+.error-message {
+    grid-column: span 2;
+    background-color: rgba(229, 57, 53, 0.2);
+    color: var(--color-accent-expense);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+/* Visualization Panel */
+.visualization-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.visualization-panel h2 {
+    color: var(--color-primary-violet);
+    margin-bottom: 20px;
+}
+.chart-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+}
+
+.filter-group {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Transaction List */
+.transaction-list-panel {
+    margin-top: 30px;
+}
+
+#transaction-list {
+    list-style: none;
+    padding: 0;
+}
+
+#transaction-list li {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 0.5fr 0.5fr; /* Date, Description, Category, Amount, Edit, Delete */
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #3b3e47;
+    font-size: 0.95rem;
+}
+
+#transaction-list li:last-child {
+    border-bottom: none;
+}
+
+.transaction-amount {
+    font-weight: 700;
+    text-align: right;
+}
+
+.income-amount { color: var(--color-accent-income); }
+.expense-amount { color: var(--color-accent-expense); }
+
+.category-tag {
+    background-color: #3B3E47;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--color-secondary-grey);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.edit-btn:hover { color: var(--color-primary-violet); }
+.delete-btn:hover { color: var(--color-accent-expense); }
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* RESPONSIVENESS (Hard Requirement) */
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr; /* Stack input and visualization on smaller screens */
+    }
+    .summary-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns for summary */
+    }
+    .net-income {
+        grid-column: span 2; /* Net Income spans full width */
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* Stack form inputs */
+    }
+    .radio-group, .btn {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .summary-grid {
+        grid-template-columns: 1fr; /* All summary cards stack */
+    }
+    .net-income {
+        grid-column: span 1;
+    }
+    .import-export-controls {
+        flex-direction: column;
+    }
+    #transaction-list li {
+        grid-template-columns: 1fr 2fr 1fr 1fr 0.5fr 0.5fr;
+        font-size: 0.85rem;
+    }
+    .category-tag {
+        display: none; /* Hide category tag on very small screens to save space */
+    }
+}
