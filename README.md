@@ -5,6 +5,12 @@ AuraTrack helps you track income and expenses, visualize spending with interacti
 
 ---
 
+  <img width="1852" height="863" alt="image" src="https://github.com/user-attachments/assets/d682950f-30e0-4817-a433-fe4c579d11d2" /> 
+  
+<br>
+
+-  <img width="1737" height="673" alt="image" src="https://github.com/user-attachments/assets/47adf5df-1565-4c90-af40-9a769826b9fd" />
+
 ## 🌟 Features<br><br>
 
 📊 **Dynamic Dashboard** – Real-time updates of Net Balance, Total Income, and Total Expenses<br>
